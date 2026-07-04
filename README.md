@@ -1,24 +1,46 @@
-# Titanic Dataset - Data Cleaning & Preprocessing
+# Titanic: Machine Learning from Disaster (End-to-End Project)
 
-This repository contains a Python-based Data Preprocessing and Data Cleaning project using the famous **Titanic Dataset** from Kaggle. Data preprocessing is a crucial first step before building any Machine Learning model.
+This repository contains an end-to-end Machine Learning project on the classic Titanic dataset. The project is divided into two main phases: **Data Cleaning & Preprocessing** (Week 1) and **Predictive Modeling using Classification Algorithms** (Week 2).
 
-## 📌 Project Overview
-The main goal of this project is to handle missing values, clean the dataset, and encode categorical features into a format suitable for Machine Learning algorithms.
+---
 
-## 🛠️ Key Tasks Achieved
-- **Exploratory Data Analysis (EDA):** Analyzed data shapes, types, and descriptive statistics.
-- **Handling Missing Values:** Imputed missing values in the `Age` column using the Median and the `Embarked` column using the Mode.
-- **Feature Selection:** Dropped the `Cabin` column due to an excessive amount of missing data (over 70%).
-- **Categorical Encoding:** Converted `Sex` column to binary integers using `LabelEncoder` and applied One-Hot Encoding (`pd.get_dummies`) to the `Embarked` column.
-- **Data Visualization:** Plotted an Age Distribution graph using Matplotlib and Seaborn to analyze passenger demographics.
+## Project Overview
+The goal of this project is to predict whether a passenger survived the Titanic disaster based on features like age, gender, passenger class, and fare.
 
-## 🚀 Technologies Used
-- Python 3
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-Learn
+---
 
-## 📂 Output
-The project successfully cleans the raw data and exports it as a new file named `titanic_cleaned_survival.csv`, which is completely ready for training Machine Learning models.
+## Phase 1: Data Cleaning & Preprocessing
+In the first phase (`titanic_data_cleaning.ipynb`), the raw dataset was processed to make it ready for machine learning models.
+* **Handling Missing Values:** Filled missing values in age and fare columns using median strategies and handled categorical gaps.
+* **Feature Engineering:** Extracted useful insights and dropped irrelevant columns (like PassengerId, Name, Ticket, Cabin) to reduce noise.
+* **Categorical Encoding:** Converted text-based features (like Gender and Embarked) into numerical values using One-Hot Encoding (`pd.get_dummies`).
+
+---
+
+## Phase 2: Predictive Modeling (Classification)
+In the second phase (`titanic_classification_models.ipynb`), three different Supervised Machine Learning algorithms were trained and evaluated on an 80-20 train-test split.
+
+### Model Performance & Accuracy:
+| Model | Accuracy Score | Key Highlights |
+| :--- | :--- | :--- |
+| **Logistic Regression** | **82.12%** | Best baseline performance with standard iterations. |
+| **Decision Tree (Tuned)** | **81.56%** | Optimized at `max_depth=5` to prevent overfitting. |
+| **Decision Tree (Default)**| **80.45%** | Unlimited depth led to slight overfitting. |
+| **K-Nearest Neighbors (KNN)**| **65.92%** | Lower accuracy, sensitive to feature scaling. |
+
+### Key Insights & Evaluation
+* **Hyperparameter Tuning:** Tuning the `max_depth` of the Decision Tree significantly improved the model's test accuracy (from 80.45% to 81.56%).
+* **Confusion Matrix:** Implemented visual `ConfusionMatrixDisplay` for Logistic Regression to evaluate True Positives and False Positives effectively.
+
+---
+
+## Repository Structure
+* `titanic_data_cleaning.ipynb`: Jupyter Notebook for Data Preprocessing.
+* `titanic_classification_models.ipynb`: Jupyter Notebook for Model Training, Evaluation, and Tuning.
+* `titanic_cleaned_survival.csv`: The cleaned dataset used for training models.
+
+---
+
+## Tech Stack Used
+* **Language:** Python
+* **Libraries:** Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn
